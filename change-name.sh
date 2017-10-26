@@ -1,1 +1,7 @@
-ls *jpg | cat -n | while read n f; do mv "$f" "banana$n.jpg"; done 
+#!/bin/sh
+num=0
+for file in *.jpg; do
+       mv "$file" "$(printf "%u" $num).jpg"
+       let num=$num+1
+done
+
